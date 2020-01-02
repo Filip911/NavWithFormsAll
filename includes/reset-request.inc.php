@@ -1,5 +1,4 @@
   
-  
 <?php 
     if (isset($_POST['reset-request-submit'])) {
         
@@ -14,13 +13,12 @@
 
         $userEmail = $_POST['eemail'];
 
-        if (!filter_var($userEmail, FILTER_VALIDATE_EMAIL) || empty($userEmail)) {
+        if (!filter_var($userEmail, FILTER_VALIDATE_EMAIL) || empty($userEmail)) {  // Validation Input Email
             header("location: ../reset-pass.php?error=invalidemail".$username);
             exit();
-        } 
-          
-
-        $sql = "DELETE FROM pwdreset WHERE pwdResetEmail=?;";
+        }        
+   
+        $sql = "DELETE FROM pwdreset WHERE pwdResetEmail=?;";   // Delete existing token
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql) ) {
             echo 'ERROR!';
@@ -30,7 +28,17 @@
             mysqli_stmt_execute($stmt);
         }
 
-        $sql = "INSERT INTO pwdreset (pwdResetEmail, pwdResetSelector, pwdResetToken, pwdResetExpires)
+        $sql = "SELECT * FROM users WHERE emailUsers =?";   // Search if user exist for next query below
+         $stmt = mysqli_stmt_init($conn);
+         if (!mysqli_stmt_prepare($stmt, $sql)) {
+             header("location: ../reset-pass.php?error=sqlerror");
+             exit();
+         } elseif (mysqli_stmt_bind_param($stmt, "s", $userEmail)) {               
+             mysqli_stmt_execute($stmt);
+             mysqli_stmt_store_result($stmt);
+             $resultCheck = mysqli_stmt_num_rows($stmt);
+             if($resultCheck > 0) {
+        $sql = "INSERT INTO pwdreset (pwdResetEmail, pwdResetSelector, pwdResetToken, pwdResetExpires)   #Insert into second DB if user exist
          VALUES (?, ?, ?, ?);";
          $stmt = mysqli_stmt_init($conn);
          if (!mysqli_stmt_prepare($stmt, $sql) ) {
@@ -41,7 +49,9 @@
              mysqli_stmt_bind_param($stmt, "ssss", $userEmail, $selector, $hashedToken, $expires);
              mysqli_stmt_execute($stmt);
          }
-             
+        }  
+    }      
+
          $to = $userEmail;
 
          $subject = 'Reset your password ,regards!';
@@ -57,20 +67,21 @@
 
          $sql = "SELECT * FROM users WHERE emailUsers =?";  
          $stmt = mysqli_stmt_init($conn);
-         if (!mysqli_stmt_prepare($stmt, $sql)){
+         if (!mysqli_stmt_prepare($stmt, $sql)) {
              header("location: ../reset-pass.php?error=sqlerror");
              exit();
+
          } elseif (mysqli_stmt_bind_param($stmt, "s", $userEmail)) {               
              mysqli_stmt_execute($stmt);
              mysqli_stmt_store_result($stmt);
              $resultCheck = mysqli_stmt_num_rows($stmt);
-             if($resultCheck > 0){
-                mail($to, $subject, $message, $headers);
-                header("Location: ../reset-pass.php?reset=success");
+             if($resultCheck > 0) {      
+                $sendm = mail($to, $subject, $message, $header);
+                header("location: ../reset-pass.php?success=mailsent"); 
                      exit();                       
              } else {
                  header("location: ../reset-pass.php?error=nomailfound"); 
                      exit();                  
-             }
+             }             
          }
     }

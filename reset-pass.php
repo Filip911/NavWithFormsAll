@@ -19,22 +19,23 @@
                 <br>
                 <div class="col text-center">
                 <?php 
-                    if (isset($_GET['reset'])) {
-                        if ($_GET['reset'] == 'success') {
+                    if (isset($_GET['success'])) {
+                        if ($_GET['success'] == 'mailsent') {
                             echo '<p style="color:#3bce25;">Check your e-mail!</p>';
                         } 
                     }
                 ?>
-             <?php 
+                <?php 
                 if (isset($_GET['error'])) {
                 if ($_GET['error'] == 'invalidemail') {
                 echo '<p style="color:red;">Please input valid e-mail address!</p>';
                 }
                 if ($_GET['error'] == 'nomailfound') {
-                echo '<p style="color:red;">No e-mail address found!</p>';                    
+                echo '<p style="color:red;">No e-mail address found!</p>';       
+                
             }
         }
-                ?>              
+                ?>             
                 </div>
             </div>
             <div class="col-md-4">
