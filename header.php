@@ -16,7 +16,7 @@
  <nav class="navbar navbar-default">
  <a class="navbar-brand" href="#">F . . . .</a>
       <ul class="nav navbar-nav">
-        <li><a href="#">Link</a></li>
+        <li><a href="photogallery">Photos Live</a></li>
         <li><a href="#">Link</a></li>
         <li><a href="#">Something</a></li>
       </ul>
