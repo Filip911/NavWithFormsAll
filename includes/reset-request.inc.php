@@ -5,7 +5,7 @@
         $selector = bin2hex(random_bytes(8));
         $token = random_bytes(32);
 
-        $url = "www.fecy.epizy.com/create-new-password.php?selector=" . $selector . "&validator=" .bin2hex($token);
+        $url = "www.fecy.epizy.com/create-new-password.php?selector=" . $selector . "&validator=" . bin2hex($token);
 
         $expires = date("U") + 1800; // 1 hour
 
@@ -76,7 +76,8 @@
              mysqli_stmt_store_result($stmt);
              $resultCheck = mysqli_stmt_num_rows($stmt);
              if($resultCheck > 0) {      
-                $sendm = mail($to, $subject, $message, $header);
+                 
+                mail($to, $subject, $message, $header);
                 header("location: ../reset-pass.php?success=mailsent"); 
                      exit();                       
              } else {

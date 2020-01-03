@@ -10,7 +10,7 @@
 
             <?php            
                 $selector = $_GET['selector'];
-                $selector = $_GET['validator'];
+                $validator = $_GET['validator'];
 
                 if (empty($selector) || empty($validator)) {
                     echo 'Could not validate your request';
@@ -23,7 +23,7 @@
                             <input type="hidden" name="validator" value="<?php echo $validator; ?>">
                             <input type="password" name="pwd" placeholder="Enter a new password ...">
                             <input type="password" name="rpdpwd" placeholder="Repeat new password ...">
-                            <button type="submit" name="reset-password-submit">Reset password</button>
+                            <button class="btn btn-success" type="submit" name="reset-password-submit">Reset password</button>
                         </form>
 
                         <?php
