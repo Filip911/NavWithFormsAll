@@ -9,11 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://bootswatch.com/3/cosmo/bootstrap.min.css" rel="stylesheet">
-    <link type="css/style.css">
+    <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-<div>
- <nav class="navbar navbar-default">
+
+ <nav class="navbar navbar-default fixed-top">
+ <div class="container-fluid">
  <a class="navbar-brand" href="#">F . . . .</a>
       <ul class="nav navbar-nav">
         <li><a href="photogallery">Photos Live</a></li>
@@ -43,7 +44,10 @@
       }
       ?>
    </div>
+   </div>
  </nav>
-</div>
+
+
+
      
 
