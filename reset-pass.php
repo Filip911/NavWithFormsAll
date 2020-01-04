@@ -6,9 +6,10 @@
         <div class="row">
             <div class="col-md-4">
             </div>
-            <div class="col-md-4">
-                <h1 class="col text-center">Reset Your Password</h1>
-                <p class="col text-center">An e-mail will be sent to you,to reset your password.</p>
+            <div class="col-md-4">  
+                <br>
+                <h2 style="color:white;" class="col text-center">Reset Your Password</h2>
+                <p style="color:white;" class="col text-center">An e-mail will be sent to you,to reset your password.</p>
                 <form action="includes/reset-request.inc.php" method="post">
                     <input class="form-control"  type="text" name="eemail" placeholder="Enter your e-mail address..." style="width:360px;">
                     <br>

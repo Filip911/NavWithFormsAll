@@ -7,7 +7,7 @@
             <div class="col-md-4">
             </div>
             <div class="col-md-4">
-
+                <br>
             <?php            
                 $selector = $_GET['selector'];
                 $validator = $_GET['validator'];

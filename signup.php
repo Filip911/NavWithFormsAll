@@ -10,7 +10,8 @@
       <form action="includes/signup.inc.php" method="post" novalidate>
       <div class="col text-center">
         <br><br>
-          <h3><strong>Sign Up<strong></h3>          
+          <h3 style="color:white;"><strong>Sign Up<strong></h3> 
+          <br>         
            <?php 
             if (isset($_GET['error'])) { 
 
