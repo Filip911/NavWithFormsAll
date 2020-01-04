@@ -1,13 +1,7 @@
 <?php 
     require "header.php";
 ?>
-                <div id="intro" class="view">
-
-                <div class="full-bg-img">
-
-                </div>
-
-                </div>
+         
 
     <main>
         <div class="wrapper-main">

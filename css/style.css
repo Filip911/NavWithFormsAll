@@ -1,12 +1,4 @@
-html,
-body,
-header,
-#intro {
-    height: 100%;
-}
-
-
-#intro {
-    background: url("img/kali.jpg") no-repeat center center fixed;
-    background-size: cover;
+* {
+    padding: 0px;
+    margin: 0px;
 }

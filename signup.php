@@ -9,6 +9,7 @@
     <div class="col-md-4">
       <form action="includes/signup.inc.php" method="post" novalidate>
       <div class="col text-center">
+        <br><br>
           <h3><strong>Sign Up<strong></h3>          
            <?php 
             if (isset($_GET['error'])) { 
