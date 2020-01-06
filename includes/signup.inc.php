@@ -6,6 +6,23 @@
         $email = $_POST['mail'];
         $pwd = $_POST['pwd'];
         $pwdrpt = $_POST['pwd_repeat'];
+
+        $secretKey = '6LfhtcwUAAAAABdVf0e_lwgjxuY0qwltZpgi5bPV';
+		$responsKey =  $_POST['g-recaptcha-response'];
+		$userIp = $_SERVER['REMOTE_ADDR'];
+
+		$url = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$responsKey&remmoteip=$userIp";
+		$response = file_get_contents($url);
+		echo $response;
+		$response = json_decode($url, TRUE);
+		if ($response['success'] == 1) {
+			echo "Verification success. Your name is: $username";
+        } else {
+			echo "Verification failed!";
+        }
+
+
+
         if (empty($username) || empty($email) || empty($pwd) || empty($pwdrpt)) {
             header("location: ../signup.php?error=emptyfields&uid=".$username."&mail=".$email);
            

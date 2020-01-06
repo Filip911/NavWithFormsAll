@@ -51,7 +51,9 @@
             <br> 
           <input class="form-control" type="password" placeholder="Repeat Password" name="pwd_repeat">
             <br>
-            <div class="col text-center">   
+            <div class="col text-center">  
+            <div class="g-recaptcha" data-sitekey="6LfhtcwUAAAAAETzgoi47ztnjA_vAyLKARKXxJfe"></div>
+            <br> 
             <button class="btn btn-success" type="submit" name="signup-submit">Signup</button>
             <br><br>
             <?php

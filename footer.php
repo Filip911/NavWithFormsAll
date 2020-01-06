@@ -1,6 +1,6 @@
  
 <footer>
-<div>No skip days!</div>
+
 </footer>
 
 
